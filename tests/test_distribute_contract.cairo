@@ -648,25 +648,12 @@ fn test_distribution_history_after_distribution() {
     let history = distributor.get_distribution_history(0, 1);
 
     //Assert token stats
-    assert(
-        *history[0].caller == sender,
-        'wrong caller',
-    );
-    assert(
-        *history[0].token == token_address,
-        'wrong token',
-    );
-    assert(
-        *history[0].amount == 300,
-        'wrong last_distribution time',
-    );
-    assert(
-        *history[0].recipients_count == 3, 'wrong recipient
-    count',
-    );
-    assert(
-        *history[0].timestamp == 0x2137_u64, 'wrong timestamp',
-    );
+    assert(*history[0].caller == sender, 'wrong caller');
+    assert(*history[0].token == token_address, 'wrong token');
+    assert(*history[0].amount == 300, 'wrong last_distribution time');
+    assert(*history[0].recipients_count == 3, 'wrong recipient
+    count');
+    assert(*history[0].timestamp == 0x2137_u64, 'wrong timestamp');
 
     stop_cheat_block_timestamp(distributor.contract_address);
 }
